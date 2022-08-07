@@ -1,0 +1,24 @@
+<!-- <p>distritos works!</p> -->
+
+
+<mat-card>
+    <mat-card-content *ngIf="!propiedades">
+        <mat-card-title>Notarías aprobadas para reanudar actividades
+        </mat-card-title>
+        <mat-card-subtitle>Solicitudes aprobadas por el Sector Justicia según
+            Resolución Ministerial Nº 0135-2020-JUS.
+        </mat-card-subtitle>
+
+    </mat-card-content>
+
+    <mat-card-content *ngIf="propiedades">
+        <mat-card-title *ngIf="!propiedades">
+        </mat-card-title>
+        <mat-card-subtitle>
+            <!-- {{propiedades.urlImg}} -->
+        </mat-card-subtitle>
+
+        <img mat-card-image src="{{propiedades.urlImg}}" />
+
+    </mat-card-content>
+</mat-card>

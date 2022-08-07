@@ -1,0 +1,82 @@
+<!-- <p>lista works!</p> -->
+
+<div fxLayout="row wrap">
+
+  <div fxFlex.gt-lg="100"
+       fxFlex.gt-md="100"
+       fxFlex.gt-xs="100"
+       fxFlex="100">
+
+    <mat-card>
+      <mat-card-content>
+        <div class="d-flex flex-wrap">
+          <div>
+            <mat-card-title>Notarias de {{propiedades.nombre}}
+
+              <!-- {{notarias | json}} -->
+            </mat-card-title>
+            <mat-card-subtitle>Cantidad de notarias: {{propiedades.cantidad}}
+            </mat-card-subtitle>
+          </div>
+        </div>
+
+        <div *ngIf="existeNotarias">
+          <mat-card>
+            <div class="mat-elevation-z8">
+
+              <mat-table [dataSource]="tableDataSource"
+                         matSort>
+                <ng-container matColumnDef="notariaId">
+                  <mat-header-cell *matHeaderCellDef
+                                   mat-sort-header> ID </mat-header-cell>
+                  <mat-cell *matCellDef="let row"> {{row.notariaId}} </mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="nombre">
+                  <mat-header-cell *matHeaderCellDef
+                                   mat-sort-header> Nombre Completo
+                  </mat-header-cell>
+                  <mat-cell *matCellDef="let row"> {{row.nombreCompleto}}
+                  </mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="provincia">
+                  <mat-header-cell *matHeaderCellDef
+                                   mat-sort-header> Provincia </mat-header-cell>
+                  <mat-cell *matCellDef="let row"> {{row.provincia}} </mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="distrito">
+                  <mat-header-cell *matHeaderCellDef
+                                   mat-sort-header> Distrito </mat-header-cell>
+                  <mat-cell *matCellDef="let row"> {{row.distrito}} </mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="fecini">
+                  <mat-header-cell *matHeaderCellDef
+                                   mat-sort-header> Fec. Inicio </mat-header-cell>
+                  <mat-cell *matCellDef="let row"> {{row.fecInicioServicio |
+                    date}} </mat-cell>
+                </ng-container>
+
+                <mat-header-row *matHeaderRowDef="displayedColumns">
+                </mat-header-row>
+                <mat-row *matRowDef="let row; columns: displayedColumns;">
+                </mat-row>
+              </mat-table>
+
+              <mat-paginator [pageSizeOptions]="[5, 10, 20]"
+                             showFirstLastButtons
+                             aria-label="Select page of periodic elements">
+              </mat-paginator>
+            </div>
+          </mat-card>
+
+        </div>
+
+      </mat-card-content>
+    </mat-card>
+
+  </div>
+
+</div>

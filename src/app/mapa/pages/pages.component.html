@@ -1,0 +1,51 @@
+<!-- <p>pages works!</p> -->
+
+<div fxLayout="row wrap">
+  <!-- column -->
+
+  <div fxFlex.gt-lg="55"
+       fxFlex.gt-md="55"
+       fxFlex.gt-xs="100"
+       fxFlex="100">
+
+    <mat-card>
+      <mat-card-content>
+        <div class="d-flex flex-wrap">
+          <div fxFlex.gt-lg="100"
+               fxFlex.gt-md="100"
+               fxFlex.gt-xs="100"
+               fxFlex="100">
+            <mat-card-title>Mapa de Distritos Notariales</mat-card-title>
+            <!-- <mat-card-subtitle>Ample Admin Vs Material Admin</mat-card-subtitle> -->
+
+            <mat-card-content class="ml-auto">
+              <app-mapa (onDistrito)="mostrarNotarias($event)"></app-mapa>
+            </mat-card-content>
+          </div>
+
+        </div>
+
+
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+
+
+  <div fxFlex.gt-lg="45"
+       fxFlex.gt-md="45"
+       fxFlex.gt-xs="100"
+       fxFlex="100">
+
+    <app-distritos [propiedades]="propiedades"></app-distritos>
+
+  </div>
+
+</div>
+
+
+<!-- {{notarias|json}} -->
+
+<app-lista [notarias]="notarias"
+           [propiedades]="propiedades"
+           *ngIf="existeDistrito"></app-lista>
